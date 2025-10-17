@@ -260,6 +260,7 @@ defmodule Adbc.Driver do
   defp cached_download(url, ignore_proxy, driver_name, version, triplet) do
     cache_dir = adbc_cache_dir()
     cache_path = Path.join(cache_dir, "#{driver_name}-#{triplet}-#{version}.zip")
+    IO.inspect(cache_path, label: "cache_path")
 
     if File.exists?(cache_path) do
       {:ok, cache_path}
